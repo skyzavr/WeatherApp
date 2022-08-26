@@ -1,0 +1,211 @@
+@import 'colours.scss';
+.leftBar {
+  //   width: 45%;
+  background-color: $LightBGSecGray;
+  box-sizing: border-box;
+  padding: 20px;
+  // height: calc(100vh-40px);
+
+  height: 100vh;
+  .searchPanel {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    width: 620px;
+    background-color: $PrimCol;
+    // border-radius: 13px;
+    padding: 0 15px;
+
+    .searchPanel__Sort {
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      justify-content: space-around;
+      align-items: center;
+      .sort_btn {
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      .from {
+        margin-left: 20px;
+      }
+    }
+    .searchPanel__Search {
+      .input_search {
+        height: 35px;
+        border: 0;
+        width: 450px;
+        color: $SearchColour;
+        background-color: $LightBGSec;
+        // border-radius: 13px;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px;
+      }
+    }
+  }
+  .resultPanel {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 20px;
+    .leftSideResult {
+      //   width: 300px;
+
+      .searchResult__item {
+        margin-bottom: 10px;
+        color: $lightGrayColour;
+        background: #fff;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: space-between;
+        width: 290px;
+        padding: 20px;
+        .Item__city {
+          font-size: 24px;
+          font-weight: 500;
+        }
+        .citiItem_block {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          flex-direction: row;
+          .Item__temp {
+            margin-right: 20px;
+            font-size: 20px;
+            .degree {
+              font-weight: 600;
+            }
+            .degreeSing {
+              font-weight: 600;
+            }
+          }
+          .Item__drag {
+            display: flex;
+            flex-direction: row;
+            .drag__sign {
+              width: 3px;
+              height: 20px;
+              background-color: $lightGrayColour;
+              margin-right: 5px;
+              //two lines
+            }
+          }
+        }
+      }
+    }
+  }
+  .rughtSideBookmarks {
+    // BM filter
+    margin-left: 20px;
+    .filter {
+      //   width: 310px;
+      //   height: 40px;
+      background-color: $LightBGPrime;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 10px;
+      .filter__item {
+        a {
+          img {
+          }
+        }
+        a:not(.current) {
+          background-color: $LightBGPrime;
+          opacity: 0.2;
+        }
+      }
+    }
+    //<!-- city card -->
+    .BM_Items {
+      margin-top: 15px;
+      .bookmarksItem {
+        margin-bottom: 20px;
+        width: 300px;
+        border-radius: 20px;
+        background: $LightBGPrime;
+        .BMItem__city {
+          color: $LightBGPrime;
+          background-color: $darkBG;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px;
+          border-radius: 20px;
+          .BM_city {
+            font-size: 20px;
+            font-weight: bold;
+          }
+          .BM_temp {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            .temp_city {
+              font-size: 20px;
+              font-weight: bold;
+              .degree {
+                font-weight: 600;
+              }
+              .degreeSing {
+                color: $LightBGPrime;
+              }
+            }
+            .temp__img {
+              margin-left: 10px;
+              .wheater_icon {
+              }
+            }
+          }
+        }
+        // <!-- bottom side of city card -->
+        .BMItem__weather {
+          display: flex;
+          justify-content: space-around;
+          flex-direction: column;
+          padding: 25px 20px;
+          font-size: 16px;
+          font-weight: 600;
+          color: $lightGrayColour;
+          .top_line {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .Item__drag {
+              display: flex;
+              flex-direction: row;
+              .drag__sign {
+                width: 3px;
+                height: 20px;
+                background-color: $lightGrayColour;
+                margin-right: 5px;
+                //two lines
+              }
+            }
+          }
+          .bottom_line {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .bottom_line_wind {
+            }
+            .bottom_line_windRes {
+            }
+          }
+        }
+      }
+    }
+  }
+}

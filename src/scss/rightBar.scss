@@ -1,0 +1,147 @@
+@import 'colours.scss';
+.rightBar {
+  height: 100vh;
+  background-color: $LightBGPrimeGray;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  // switcher
+  .themeSwitch {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    a {
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  // block of city - big one
+  .bigCityBlock {
+    // width: 800px;
+    display: flex;
+    background-color: $LightBGSec;
+    flex-direction: column;
+    padding: 50px 40px;
+    border-radius: 15px;
+    .block_city {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .block_city_city {
+        color: $darkGrayColour;
+        font-size: 42px;
+        font-weight: bold;
+      }
+      .block_city_temp {
+        color: $darkGrayColour;
+        font-size: 46px;
+        font-weight: bold;
+        display: flex;
+        flex-direction: row;
+        .temp {
+        }
+        .tempSign {
+        }
+      }
+    }
+    .block_day {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 40px;
+      .DayWeek {
+        color: $PrimCol;
+      }
+      .Date {
+        margin-left: 10px;
+        color: $lightGrayColour;
+      }
+    }
+    .block_weath {
+      color: $lightGrayColour;
+      font-weight: 500;
+      font-size: 26px;
+    }
+    .block_line {
+      margin: 30px 0;
+      .line {
+        // width: 720px;
+        height: 1px;
+        background-color: $lightGrayColour;
+        opacity: 0.38;
+      }
+    }
+    .block_wind {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 26px;
+      color: $lightGrayColour;
+      font-weight: 500;
+      .wind_tit {
+      }
+    }
+  }
+
+  // block with 3 small cards
+  .daysCityBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    margin: 20px 0;
+    .blockItem:nth-child(2n) {
+      margin: 0 20px;
+    }
+    .blockItem {
+      padding: 15px 30px 20px;
+      // for the next day (day 1)
+      width: 260px;
+      // height: 200px;
+      display: flex;
+      flex-direction: column;
+      background-color: $LightBGSec;
+      border-radius: 15px;
+      .item_Weekday.tomorrow {
+        color: $PrimCol;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      .item_Weekday:not(.tomorrow) {
+        opacity: 0;
+      }
+      .item_day {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .day {
+          font-size: 16px;
+          color: $lightGrayColour;
+          font-weight: 500;
+        }
+        .temp {
+          font-size: 46px;
+          font-weight: bold;
+          color: $lightGrayColour;
+        }
+      }
+      .item_wind {
+        display: flex;
+        justify-content: flex-end;
+        color: $lightGrayColour;
+        justify-content: space-between;
+        font-weight: 500;
+        font-size: 26px;
+        margin: 25px 0 0;
+        .wind {
+        }
+        .windVal {
+        }
+      }
+    }
+  }
+  .MapBlock {
+    .map {
+    }
+  }
+}

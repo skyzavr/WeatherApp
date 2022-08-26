@@ -1,0 +1,20 @@
+<svg width="37" height="20" viewBox="0 0 37 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_b_89_2335)">
+<rect width="2.81151" height="7.98916" rx="1.40575" transform="matrix(0.964188 0.265219 -0.252551 0.967583 2.01758 11.5242)" fill="#1D50B5"/>
+<rect width="2.81151" height="7.98916" rx="1.40575" transform="matrix(0.964188 0.265219 -0.252551 0.967583 11.1118 11.5242)" fill="#1D50B5"/>
+<rect width="2.81151" height="7.98916" rx="1.40575" transform="matrix(0.964188 0.265219 -0.252552 0.967583 20.2058 11.5242)" fill="#1D50B5"/>
+<rect width="2.81151" height="7.98916" rx="1.40575" transform="matrix(0.964188 0.265219 -0.252552 0.967583 29.3 11.5242)" fill="#1D50B5"/>
+<rect width="2.81151" height="7.98916" rx="1.40575" transform="matrix(0.964188 0.265219 -0.252551 0.967583 7.00684 0)" fill="#1D50B5"/>
+<rect width="2.81151" height="7.98916" rx="1.40575" transform="matrix(0.964188 0.265219 -0.252551 0.967583 16.1011 0)" fill="#1D50B5"/>
+<rect width="2.81151" height="7.98916" rx="1.40575" transform="matrix(0.964188 0.265219 -0.252551 0.967583 25.1951 0)" fill="#1D50B5"/>
+<rect width="2.81151" height="7.98916" rx="1.40575" transform="matrix(0.964188 0.265219 -0.252551 0.967583 34.2893 0)" fill="#1D50B5"/>
+</g>
+<defs>
+<filter id="filter0_b_89_2335" x="-4" y="-4" width="45" height="28" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImage" stdDeviation="2"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_89_2335"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_89_2335" result="shape"/>
+</filter>
+</defs>
+</svg>
