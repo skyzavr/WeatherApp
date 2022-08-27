@@ -508,6 +508,117 @@
   margin: 25px 0 0;
 }
 
+body.dark {
+  background-color: #252e48;
+}
+
+body.dark .leftBar {
+  background-color: #131826;
+}
+
+body.dark .leftBar .searchPanel {
+  background-color: #002094;
+}
+
+body.dark .leftBar .searchPanel .searchPanel__Search .input_search {
+  color: #252e48;
+  background-color: #f9f9f9;
+}
+
+body.dark .leftBar .resultPanel .leftSideResult .searchResult__item {
+  color: #f9f9f9;
+  background: #252e48;
+}
+
+body.dark .leftBar .resultPanel .leftSideResult .searchResult__item .citiItem_block .Item__drag .drag__sign {
+  background-color: #f9f9f9;
+}
+
+body.dark .leftBar .rughtSideBookmarks .filter {
+  background-color: #252e48;
+}
+
+body.dark .leftBar .rughtSideBookmarks .filter .filter__item a:not(.current) {
+  background-color: #ffffff;
+  opacity: 0.2;
+}
+
+body.dark .leftBar .rughtSideBookmarks .BM_Items .bookmarksItem {
+  background: #252e48;
+}
+
+body.dark .leftBar .rughtSideBookmarks .BM_Items .bookmarksItem .BMItem__city {
+  color: #131826;
+  background-color: #f9f9f9;
+}
+
+body.dark .leftBar .rughtSideBookmarks .BM_Items .bookmarksItem .BMItem__city .BM_temp .temp_city .degreeSing {
+  color: #131826;
+}
+
+body.dark .leftBar .rughtSideBookmarks .BM_Items .bookmarksItem .BMItem__weather {
+  color: #f9f9f9;
+}
+
+body.dark .leftBar .rughtSideBookmarks .BM_Items .bookmarksItem .BMItem__weather .top_line .Item__drag .drag__sign {
+  background-color: #f9f9f9;
+}
+
+body.dark .rightBar {
+  background-color: #252e48;
+}
+
+body.dark .rightBar .themeSwitch a img {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+body.dark .rightBar .bigCityBlock {
+  background-color: #131826;
+}
+
+body.dark .rightBar .bigCityBlock .block_city .block_city_city,
+body.dark .rightBar .bigCityBlock .block_city .block_city_temp {
+  color: #fff;
+}
+
+body.dark .rightBar .bigCityBlock .block_day .DayWeek {
+  color: #0056ff;
+}
+
+body.dark .rightBar .bigCityBlock .block_day .Date {
+  color: #dddddd;
+}
+
+body.dark .rightBar .bigCityBlock .block_weath {
+  color: #fff;
+}
+
+body.dark .rightBar .bigCityBlock .block_line .line {
+  background-color: rgba(230, 230, 230, 0.38);
+}
+
+body.dark .rightBar .bigCityBlock .block_wind {
+  color: #fff;
+}
+
+body.dark .rightBar .daysCityBlock .blockItem {
+  background-color: #131826;
+}
+
+body.dark .rightBar .daysCityBlock .blockItem .item_Weekday.tomorrow {
+  color: #0056ff;
+}
+
+body.dark .rightBar .daysCityBlock .blockItem .item_day .day,
+body.dark .rightBar .daysCityBlock .blockItem .item_day .temp {
+  color: #fff;
+}
+
+body.dark .rightBar .daysCityBlock .blockItem .item_wind {
+  color: #fff;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;

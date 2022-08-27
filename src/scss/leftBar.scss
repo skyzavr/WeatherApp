@@ -114,10 +114,6 @@
       justify-content: space-evenly;
       padding: 10px;
       .filter__item {
-        a {
-          img {
-          }
-        }
         a:not(.current) {
           background-color: $LightBGPrime;
           opacity: 0.2;
@@ -162,8 +158,6 @@
             }
             .temp__img {
               margin-left: 10px;
-              .wheater_icon {
-              }
             }
           }
         }
@@ -199,10 +193,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            .bottom_line_wind {
-            }
-            .bottom_line_windRes {
-            }
           }
         }
       }

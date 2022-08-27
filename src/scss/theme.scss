@@ -1,0 +1,134 @@
+//dark theme
+body.dark {
+  background-color: $darkBG;
+
+  .leftBar {
+    //   width: 45%;
+    background-color: $darkBGPrimary;
+    .searchPanel {
+      background-color: $blueBG;
+      .searchPanel__Search {
+        .input_search {
+          color: $darkBG;
+          background-color: $lightGray;
+        }
+      }
+    }
+    .resultPanel {
+      .leftSideResult {
+        .searchResult__item {
+          color: $lightGray;
+          background: $darkBG;
+          .citiItem_block {
+            .Item__drag {
+              .drag__sign {
+                background-color: $lightGray;
+              }
+            }
+          }
+        }
+      }
+    }
+    .rughtSideBookmarks {
+      .filter {
+        background-color: $darkBG;
+        // !!!
+        .filter__item {
+          a:not(.current) {
+            background-color: $whitePrim;
+            opacity: 0.2;
+          }
+        }
+      }
+      .BM_Items {
+        .bookmarksItem {
+          background: $darkBG;
+          .BMItem__city {
+            color: $darkBGPrimary;
+            background-color: $LightBGSec;
+            .BM_temp {
+              .temp_city {
+                .degreeSing {
+                  color: $darkBGPrimary;
+                }
+              }
+            }
+          }
+          // <!-- bottom side of city card -->
+          .BMItem__weather {
+            color: $LightBGSec;
+
+            .top_line {
+              .Item__drag {
+                .drag__sign {
+                  background-color: $LightBGSec;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .rightBar {
+    background-color: $darkBG;
+
+    // switcher
+    .themeSwitch {
+      a {
+        img {
+          filter: invert(1);
+        }
+      }
+    }
+    // block of city - big one
+    .bigCityBlock {
+      background-color: $darkBGPrimary;
+      .block_city {
+        .block_city_city,
+        .block_city_temp {
+          color: $LightBGPrime;
+        }
+      }
+      .block_day {
+        .DayWeek {
+          color: $blueCOl;
+        }
+        .Date {
+          color: $grayCol;
+        }
+      }
+      .block_weath {
+        color: $LightBGPrime;
+      }
+      .block_line {
+        .line {
+          background-color: $line;
+        }
+      }
+      .block_wind {
+        color: $LightBGPrime;
+      }
+    }
+
+    // block with 3 small cards
+    .daysCityBlock {
+      .blockItem {
+        background-color: $darkBGPrimary;
+        .item_Weekday.tomorrow {
+          color: $blueCOl;
+        }
+        .item_day {
+          .day,
+          .temp {
+            color: $LightBGPrime;
+          }
+        }
+        .item_wind {
+          color: $LightBGPrime;
+        }
+      }
+    }
+  }
+}
