@@ -35,21 +35,7 @@
         <div class="resultPanel">
           <div class="leftSideResult">
             <!-- search result items start here-->
-            <div class="searchResult__item" draggable="true">
-              <div class="Item__city">London</div>
-              <div class="citiItem_block">
-                <div class="Item__temp">
-                  <span class="degree">28 </span>
-                  <sup class="degreeSing">&#176;</sup>
-                </div>
-                <a href="#">
-                  <div class="Item__drag">
-                    <div class="drag__sign"></div>
-                    <div class="drag__sign"></div>
-                  </div>
-                </a>
-              </div>
-            </div>
+
             <!-- end here -->
           </div>
 
@@ -206,10 +192,13 @@
       <section class="rightBar">
         <!-- City weather information -->
         <div class="themeSwitch">
-          <a href="#"><img src="src/img/theme.svg" alt="theme switcher" /></a>
+          <a href="#" class="themeSwitch"
+            ><img src="src/img/theme.svg" alt="theme switcher"
+          /></a>
         </div>
+        <div class="bigCityBlock"></div>
         <!-- big block of city  -->
-        <div class="bigCityBlock">
+        <!-- <div class="bigCityBlock">
           <div class="block_city">
             <div class="block_city_city">Berlin</div>
             <div class="block_city_temp">
@@ -231,10 +220,10 @@
             <div class="wind_tit">Wind</div>
             <div class="wind_val">13 km/h</div>
           </div>
-        </div>
+        </div> -->
         <div class="daysCityBlock">
           <!-- small card for day (3 day - 3 card) -->
-          <div class="blockItem">
+          <!-- <div class="blockItem">
             <div class="item_Weekday tomorrow">Tomorrow</div>
             <div class="item_day">
               <div class="day">Fr, 26 Aug</div>
@@ -245,7 +234,7 @@
               <div class="windVal">13 km/h</div>
             </div>
           </div>
-          <!-- card 2 -->
+          card 2
           <div class="blockItem">
             <div class="item_Weekday">Tomorrow</div>
             <div class="item_day">
@@ -256,9 +245,9 @@
               <div class="wind">Wind</div>
               <div class="windVal">15 km/h</div>
             </div>
-          </div>
+          </div> -->
           <!-- card 3 -->
-          <div class="blockItem">
+          <!-- <div class="blockItem">
             <div class="item_Weekday">Tomorrow</div>
             <div class="item_day">
               <div class="day">Sun, 28 Aug</div>
@@ -268,7 +257,7 @@
               <div class="wind">Wind</div>
               <div class="windVal">28 km/h</div>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="MapBlock">
           <div class="map"></div>
@@ -276,4 +265,5 @@
       </section>
     </main>
   </body>
+  <script src="src/js/controller.mjs" type="module"></script>
 </html>
