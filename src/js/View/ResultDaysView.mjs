@@ -1,10 +1,10 @@
 import View from './view.mjs';
 class ResultDaysView extends View {
   _parentEl = document.querySelector('.daysCityBlock');
-  _generateMarkup(weather) {
+  _generateMarkup() {
     let res = '';
-    const date = weather.date;
-    weather.days.map((el, ind) => {
+    const date = this._data.date;
+    this._data.days.map((el, ind) => {
       const newDate = new Date(
         date.getFullYear(),
         date.getMonth(),

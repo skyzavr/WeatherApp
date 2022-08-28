@@ -9,7 +9,7 @@ function themeSwitch() {
 }
 async function loadBigCity() {
   resultView.spinner();
-  await data.loadWeather('Lima');
+  await data.loadWeather('Belgrad');
   resultView.render(data.state.weather);
   resultDaysView.render(data.state.weather);
   console.log(data.state.defaultCities.London);
@@ -17,6 +17,7 @@ async function loadBigCity() {
 async function loadSearchPanel() {
   searchView.spinner();
   await data.loadSearch(data.state.defaultCities);
+  console.log(data.state.defaultCities);
   //! fix (update area as its elements loads)
   searchView.render(data.state.defaultCities);
 }

@@ -1,6 +1,6 @@
 export const API_URL = `https://goweather.herokuapp.com/weather/`;
 export const state = {
-  bookmarks: [],
+  bookmarks: {},
   weather: {},
   search: {},
   defaultCities: {
@@ -24,13 +24,13 @@ async function getJSON(city) {
 export async function loadSearch() {
   for (const key in state.defaultCities) {
     const res = await getJSON(key);
-    console.log(res);
-    if (!res.ok) return;
+    console.log(res, res.status);
+    // if (!res.ok) return;
     const data = await res.json();
     console.log(key);
     state.defaultCities[`${key}`] = {
       city: key,
-      temp: data.temperature,
+      temp: res.ok ? data.temperature : 'ND',
     };
     console.log(state.defaultCities);
   }

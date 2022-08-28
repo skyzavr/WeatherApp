@@ -1,9 +1,11 @@
 import View from './view.mjs';
 class SearchView extends View {
   _parentEl = document.querySelector('.leftSideResult');
-  _generateMarkup(cities) {
+  _generateMarkup() {
     let res = ``;
+    const cities = this._data;
     for (const key in cities) {
+      console.log(key, cities[key]);
       res += `
       <div class="searchResult__item" draggable="true">
       <div class="Item__city">${cities[key].city}</div>
