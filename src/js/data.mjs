@@ -1,4 +1,5 @@
 export const API_URL = `https://goweather.herokuapp.com/weather/`;
+export const API_CITIES = `http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=10&offset=0&namePrefix=`;
 export const state = {
   bookmarks: {},
   weather: {},
@@ -11,54 +12,57 @@ export const state = {
     Belgrad: {},
     Bejing: {},
     Lima: {},
+    Oksk: {},
   },
+  query: {},
 };
-async function getJSON(city) {
-  const resp = await fetch(`${API_URL}${city}`);
+async function getJSON(api, city) {
+  const resp = await fetch(`${api}${city}`);
   const res = await Promise.race([
     resp,
     new Promise(() => setTimeout(() => {}, 3000)),
   ]);
   return res;
 }
-export async function loadSearch() {
-  for (const key in state.defaultCities) {
-    const res = await getJSON(key);
-    console.log(res, res.status);
-    // if (!res.ok) return;
-    const data = await res.json();
-    console.log(key);
-    state.defaultCities[`${key}`] = {
-      city: key,
-      temp: res.ok ? data.temperature : 'ND',
+export async function loadCitiesQuery(api, city) {
+  const result = await getJSON(api, city);
+  const data = await result.json();
+  if (data.data.length === 0) return;
+  state.query = {};
+  for (const key in data.data) {
+    const city = data.data[key];
+    state.query[`${city.city}`] = {
+      city: city.city.slice(0, 10),
+      country: city.countryCode,
     };
-    console.log(state.defaultCities);
   }
 }
-export async function loadWeather(city) {
-  //Array.isArray(city)
-  const res = await getJSON(city);
-  console.log(res);
+export async function loadSearch(api, cities) {
+  state.search = {};
+  for (const key in cities) {
+    const res = await getJSON(api, key);
+    if (!res.ok) return;
+    const data = await res.json();
+    if (data.temperature === '') continue;
+    state.search[`${key}`] = {
+      city: key.slice(0, 10),
+      temp: res.ok ? data.temperature.slice(0, -2) : 'ND',
+      desc: data.description,
+      wind: data.wind,
+    };
+  }
+  return state.search;
+}
+export async function loadWeather(api, city) {
+  const res = await getJSON(api, city);
   if (!res.ok) return;
   const data = await res.json();
-  console.log(data);
   state.weather = {
-    city: city,
+    city: city.slice(0, 10),
     desc: data.description,
     temp: data.temperature,
     wind: data.wind,
     days: data.forecast,
     date: new Date(),
   };
-  console.log(data);
 }
-// {temperature: '22 °C', wind: '16 km/h', description: 'Sunny', forecast: Array(3)}
-// description: "Sunny"
-// forecast: Array(3)
-// 0: {day: '1', temperature: '22 °C', wind: '18 km/h'}
-// 1: {day: '2', temperature: '17 °C', wind: '12 km/h'}
-// 2: {day: '3', temperature: '17 °C', wind: '11 km/h'}
-// length: 3
-// [[Prototype]]: Array(0)
-// temperature: "22 °C"
-// wind: "16 km/h"
