@@ -17,7 +17,7 @@ class BookmarksView extends View {
             </div>
             <div class="temp__img">
               <img
-                src="src/img/cloudly.svg"
+                src="${cities[key].icon}"
                 class="wheater_icon"
                 alt="current city wheather icon"
               />

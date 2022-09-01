@@ -105,9 +105,9 @@
     // BM filter
     margin-left: 20px;
     .filter {
-      //   width: 310px;
+      min-width: 310px;
       //   height: 40px;
-      background-color: $LightBGPrime;
+      // background-color: $LightBGPrime;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -115,8 +115,12 @@
       padding: 10px;
       .filter__item {
         a:not(.current) {
-          background-color: $LightBGPrime;
+          // background-color: $LightBGPrime;
           opacity: 0.2;
+          color: $blueBG;
+        }
+        a:hover:not(.current) {
+          opacity: 1;
         }
       }
     }
@@ -158,6 +162,9 @@
             }
             .temp__img {
               margin-left: 10px;
+              img {
+                filter: brightness(10);
+              }
             }
           }
         }

@@ -1,5 +1,15 @@
 export const API_URL = `https://goweather.herokuapp.com/weather/`;
 export const API_CITIES = `http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=10&offset=0&namePrefix=`;
+export const weather_cond = [
+  'sunny',
+  'cloudy',
+  'rainy',
+  'clear',
+  'foggy',
+  'snowy',
+  'windy',
+  'thunderstorm',
+];
 export const bookmarks = [];
 export const state = {
   bookmarks: {},
@@ -40,6 +50,7 @@ export async function loadCitiesQuery(api, city) {
 }
 
 export async function loadSearch(api, cities) {
+  const path = 'src/img/weather_icon';
   state.search = {};
   for (const key in cities) {
     const res = await getJSON(api, key);
@@ -53,6 +64,7 @@ export async function loadSearch(api, cities) {
       wind: data.wind,
       days: data.forecast,
       date: new Date(),
+      icon: `${path}/${icon_gen(data.description)}.svg`,
     };
   }
   cities = {};
@@ -62,6 +74,7 @@ export async function loadSearch(api, cities) {
 }
 export async function loadWeather(api, city) {
   const res = await getJSON(api, city);
+  const path = 'src/img/weather_icon';
   if (!res.ok) return;
   const data = await res.json();
   state.weather = {
@@ -71,5 +84,31 @@ export async function loadWeather(api, city) {
     wind: data.wind,
     days: data.forecast,
     date: new Date(),
+    icon: `${path}/${icon_gen(data.description)}.svg`,
   };
+}
+function icon_gen(str) {
+  //weather_cond -arr of weather condition
+  let compVal = str.toLowerCase();
+  let icon = '';
+  if (str.includes(' ')) {
+    const weathDesc = compVal.split(' ');
+    for (let i = 0; i < weathDesc.length; i++) {
+      for (let j = 0; j < weather_cond.length; j++) {
+        if (weather_cond[j].includes(weathDesc[i])) {
+          icon = weather_cond[j];
+          console.log(icon);
+          break;
+        }
+      }
+    }
+  } else {
+    for (let j = 0; j < weather_cond.length; j++) {
+      if (weather_cond[j].includes(compVal)) {
+        icon = weather_cond[j];
+        break;
+      }
+    }
+  }
+  return (icon = '' ? 'undef' : icon);
 }

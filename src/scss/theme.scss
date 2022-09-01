@@ -31,12 +31,16 @@ body.dark {
     }
     .rughtSideBookmarks {
       .filter {
-        background-color: $darkBG;
+        filter: brightness(10);
         // !!!
         .filter__item {
           a:not(.current) {
-            background-color: $whitePrim;
+            // background-color: $whitePrim;
+            filter: brightness(10);
             opacity: 0.2;
+          }
+          a:hover:not(.current) {
+            opacity: 1;
           }
         }
       }
@@ -50,6 +54,11 @@ body.dark {
               .temp_city {
                 .degreeSing {
                   color: $darkBGPrimary;
+                }
+              }
+              .temp__img {
+                img {
+                  filter: brightness(0);
                 }
               }
             }
@@ -78,7 +87,7 @@ body.dark {
     .themeSwitch {
       a {
         img {
-          filter: invert(1);
+          filter: brightness(10);
         }
       }
     }
@@ -89,6 +98,11 @@ body.dark {
         .block_city_city,
         .block_city_temp {
           color: $LightBGPrime;
+          .tempSign {
+            img {
+              filter: brightness(10);
+            }
+          }
         }
       }
       .block_day {

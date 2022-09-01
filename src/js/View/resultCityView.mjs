@@ -13,7 +13,7 @@ class resultCityView extends View {
               -2
             )} <sup>&#176;</sup></div>
             <div class="tempSign">
-            <img src="src/img/cloudly.svg" alt="" />
+            <img src="${this._data.icon}" alt="" />
             </div>
         </div>
         </div>

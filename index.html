@@ -33,84 +33,81 @@
         </div>
         <!-- result of searching panel -->
         <div class="resultPanel">
-          <div class="leftSideResult">
-            <!-- search result items start here-->
-
-            <!-- end here -->
-          </div>
-
+          <div class="leftSideResult"></div>
           <div class="rughtSideBookmarks">
             <!-- BM filter -->
             <div class="filter">
               <div class="filter__item">
-                <a href="#"><img src="src/img/windly.svg" alt="Wind icon" /></a>
-              </div>
-              <div class="filter__item">
-                <a href="#"><img src="src/img/snowy.svg" alt="Snow icon" /></a>
-              </div>
-              <div class="filter__item">
                 <a href="#"
-                  ><img src="src/img/Lightning.svg" alt="Lightning icon"
+                  ><img
+                    src="src/img//weather_icon/clear.svg"
+                    alt="clear icon"
+                    data-weather="clear"
                 /></a>
               </div>
               <div class="filter__item">
-                <a href="#"><img src="src/img/rainy.svg" alt="Rin icon" /></a>
+                <a href="#"
+                  ><img
+                    src="src/img//weather_icon/cloudy.svg"
+                    alt="cloudy icon"
+                    data-weather="cloudy"
+                /></a>
               </div>
               <div class="filter__item">
-                <a href="#"><img src="src/img/sunny.svg" alt="Sun icon" /></a>
+                <a href="#"
+                  ><img
+                    src="src/img//weather_icon/foggy.svg"
+                    alt="foggy icon"
+                    data-weather="foggy"
+                /></a>
+              </div>
+              <div class="filter__item">
+                <a href="#"
+                  ><img
+                    src="src/img//weather_icon/rainy.svg"
+                    alt="rainy icon"
+                    data-weather="rainy"
+                /></a>
+              </div>
+
+              <div class="filter__item">
+                <a href="#"
+                  ><img
+                    src="src/img//weather_icon/snowy.svg"
+                    alt="snowy icon"
+                    data-weather="snowy"
+                /></a>
+              </div>
+              <div class="filter__item">
+                <a href="#"
+                  ><img
+                    src="src/img//weather_icon/sunny.svg"
+                    alt="sunny icon"
+                    data-weather="sunny"
+                /></a>
+              </div>
+              <div class="filter__item">
+                <a href="#"
+                  ><img
+                    src="src/img//weather_icon/thunderstorm.svg"
+                    alt="thunderstorm icon"
+                    data-weather="thunderstorm"
+                /></a>
               </div>
               <div class="filter__item">
                 <a href="#" class="current"
-                  ><img src="src/img/cloudly.svg" alt="Cloud icon"
+                  ><img
+                    src="src/img//weather_icon/windy.svg"
+                    alt="windy icon"
+                    data-weather="windy"
                 /></a>
               </div>
             </div>
             <!-- city card -->
-            <div class="BM_Items">
-              <!-- starts here -->
-              <!-- <div class="bookmarksItem">
-                top side of city card
-                <div class="BMItem__city">
-                  <div class="BM_city">Berlin</div>
-                  <div class="BM_temp">
-                    <div class="temp_city">
-                      <span class="degree">28 </span>
-                      <sup class="degreeSing">&#176;</sup>
-                    </div>
-                    <div class="temp__img">
-                      <img
-                        src="src/img/cloudly.svg"
-                        class="wheater_icon"
-                        alt="current city wheather icon"
-                      />
-                    </div>
-                  </div>
-                </div>
-                bottom side of city card
-                <div class="BMItem__weather">
-                  <div class="top_line">
-                    <div>Partly cloudly</div>
-                    <div>
-                      <a href="#">
-                        <div class="Item__drag">
-                          <div class="drag__sign"></div>
-                          <div class="drag__sign"></div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="bottom_line">
-                    <div class="bottom_line_wind">Wind</div>
-                    <div class="bottom_line_windRes">13 km/h</div>
-                  </div>
-                </div>
-              </div> -->
-              <!-- ends here -->
-            </div>
+            <div class="BM_Items"></div>
           </div>
         </div>
       </section>
-
       <section class="rightBar">
         <!-- City weather information -->
         <div class="themeSwitch">
@@ -119,68 +116,7 @@
           /></a>
         </div>
         <div class="bigCityBlock"></div>
-        <!-- big block of city  -->
-        <!-- <div class="bigCityBlock">
-          <div class="block_city">
-            <div class="block_city_city">Berlin</div>
-            <div class="block_city_temp">
-              <div class="temp">30 <sup>&#176;</sup></div>
-              <div class="tempSign">
-                <img src="src/img/cloudly.svg" alt="" />
-              </div>
-            </div>
-          </div>
-          <div class="block_day">
-            <span class="DayWeek">Today</span>
-            <span class="Date">Th, 25 Aug</span>
-          </div>
-          <div class="block_weath">Partly cloudy</div>
-          <div class="block_line">
-            <div class="line"></div>
-          </div>
-          <div class="block_wind">
-            <div class="wind_tit">Wind</div>
-            <div class="wind_val">13 km/h</div>
-          </div>
-        </div> -->
-        <div class="daysCityBlock">
-          <!-- small card for day (3 day - 3 card) -->
-          <!-- <div class="blockItem">
-            <div class="item_Weekday tomorrow">Tomorrow</div>
-            <div class="item_day">
-              <div class="day">Fr, 26 Aug</div>
-              <div class="temp">30 <sup>&#176;</sup></div>
-            </div>
-            <div class="item_wind">
-              <div class="wind">Wind</div>
-              <div class="windVal">13 km/h</div>
-            </div>
-          </div>
-          card 2
-          <div class="blockItem">
-            <div class="item_Weekday">Tomorrow</div>
-            <div class="item_day">
-              <div class="day">Sat, 27 Aug</div>
-              <div class="temp">30 <sup>&#176;</sup></div>
-            </div>
-            <div class="item_wind">
-              <div class="wind">Wind</div>
-              <div class="windVal">15 km/h</div>
-            </div>
-          </div> -->
-          <!-- card 3 -->
-          <!-- <div class="blockItem">
-            <div class="item_Weekday">Tomorrow</div>
-            <div class="item_day">
-              <div class="day">Sun, 28 Aug</div>
-              <div class="temp">30 <sup>&#176;</sup></div>
-            </div>
-            <div class="item_wind">
-              <div class="wind">Wind</div>
-              <div class="windVal">28 km/h</div>
-            </div>
-          </div> -->
-        </div>
+        <div class="daysCityBlock"></div>
         <div class="MapBlock">
           <div class="map"></div>
         </div>
