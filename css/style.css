@@ -179,7 +179,6 @@
 
 .leftBar .rughtSideBookmarks .filter .filter__item a:not(.current) {
   opacity: 0.2;
-  color: #002094;
 }
 
 .leftBar .rughtSideBookmarks .filter .filter__item a:hover:not(.current) {

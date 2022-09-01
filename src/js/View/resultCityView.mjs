@@ -13,7 +13,9 @@ class resultCityView extends View {
               -2
             )} <sup>&#176;</sup></div>
             <div class="tempSign">
-            <img src="${this._data.icon}" alt="" />
+            <img src="${this._data.icon}" alt=" ${
+      this._data.dataWeath
+    }" title="${this._data.city} city ${this._data.dataWeath} weather"/>
             </div>
         </div>
         </div>

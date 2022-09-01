@@ -106,8 +106,6 @@
     margin-left: 20px;
     .filter {
       min-width: 310px;
-      //   height: 40px;
-      // background-color: $LightBGPrime;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -115,9 +113,7 @@
       padding: 10px;
       .filter__item {
         a:not(.current) {
-          // background-color: $LightBGPrime;
           opacity: 0.2;
-          color: $blueBG;
         }
         a:hover:not(.current) {
           opacity: 1;

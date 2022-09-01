@@ -64,6 +64,7 @@ export async function loadSearch(api, cities) {
       wind: data.wind,
       days: data.forecast,
       date: new Date(),
+      dataWeath: icon_gen(data.description),
       icon: `${path}/${icon_gen(data.description)}.svg`,
     };
   }
@@ -78,12 +79,13 @@ export async function loadWeather(api, city) {
   if (!res.ok) return;
   const data = await res.json();
   state.weather = {
-    city: city.slice(0, 10),
+    city: city,
     desc: data.description,
     temp: data.temperature,
     wind: data.wind,
     days: data.forecast,
     date: new Date(),
+    dataWeath: icon_gen(data.description),
     icon: `${path}/${icon_gen(data.description)}.svg`,
   };
 }

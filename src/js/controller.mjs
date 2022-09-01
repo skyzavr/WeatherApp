@@ -24,6 +24,7 @@ async function loadSearchPanel() {
   // if LS aint empty or we'll show the last one search
   searchView.render(data.state.search);
   searchView.updateStatus(data.bookmarks, loadBookmarks);
+  bookmarksView.updateBM(data.bookmarks);
 }
 async function loadSearchQuery() {
   const input = document.querySelector('.input_search');
@@ -41,6 +42,7 @@ async function loadSearchQuery() {
         //render it
         searchView.render(data.state.search);
         searchView.updateStatus(data.bookmarks, loadBookmarks);
+        bookmarksView.updateBM(data.bookmarks);
       }
     });
   });
@@ -53,6 +55,7 @@ async function loadBookmarks() {
     return;
   }
   bookmarksView.render(data.bookmarks);
+  bookmarksView.updateBM(data.bookmarks);
 }
 
 function innit() {

@@ -7,7 +7,7 @@ class SearchView extends View {
     const cities = this._data;
     for (const key in cities) {
       res += `
-      <div class="searchResult__item" >
+      <div class="searchResult__item" data-city="${cities[key].city}">
       <div class="Item__city" title="${cities[key].city}"> 
       ${cities[key].city.slice(0, 10)}</div>
       <div class="citiItem_block">
@@ -23,6 +23,7 @@ class SearchView extends View {
   }
   updateStatus(BMList, BM) {
     const searchItems = document.querySelectorAll('.searchResult__item');
+
     searchItems.forEach((el) => {
       el.addEventListener('click', (e) => {
         if (
@@ -33,6 +34,8 @@ class SearchView extends View {
           const value = e.target.closest('.searchResult__item').children[0]
             .title;
           BMList.push(this._data[`${value}`]);
+          console.log(BMList);
+          //!FIX: If I'll search this city again its city won't be selected in search area
           e.target.closest('.searchResult__item').classList.add('selected');
           e.target.closest('.searchResult__item').classList.add('card-hide');
 
