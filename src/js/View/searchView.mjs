@@ -25,18 +25,18 @@ class SearchView extends View {
     const searchItems = document.querySelectorAll('.searchResult__item');
     searchItems.forEach((el) => {
       el.addEventListener('click', (e) => {
-        console.log(this, e);
         if (
-          (e.target.closest('.searchResult__item') ||
-            e.target.children[0].innerText) &&
-          !e.target.classList.value.includes('selected')
+          !e.target
+            .closest('.searchResult__item')
+            .classList.value.includes('selected')
         ) {
-          const value =
-            e.target.closest('.searchResult__item').children[0].title ||
-            e.target.children[0].title;
+          const value = e.target.closest('.searchResult__item').children[0]
+            .title;
           BMList.push(this._data[`${value}`]);
-          e.target.classList.add('selected');
-          BM();
+          e.target.closest('.searchResult__item').classList.add('selected');
+          e.target.closest('.searchResult__item').classList.add('card-hide');
+
+          setTimeout(() => BM(), 300);
         }
       });
     });

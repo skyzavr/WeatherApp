@@ -636,6 +636,7 @@ body {
 .BM_msg {
   background-color: #fff;
   padding: 20px;
+  line-height: 150%;
 }
 
 .spinner {
