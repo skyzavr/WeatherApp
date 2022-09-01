@@ -2,7 +2,7 @@ import View from './view.mjs';
 
 class resultCityView extends View {
   _parentEl = document.querySelector('.bigCityBlock');
-  _generateMarkup(city) {
+  _generateMarkup() {
     const date = this._data.date.toDateString().slice(0, -5);
     return `
         <div class="block_city">

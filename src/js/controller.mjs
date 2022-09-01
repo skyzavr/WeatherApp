@@ -1,4 +1,5 @@
 import * as data from './data.mjs';
+import bookmarksView from './View/bookmarksView.mjs';
 import resultView from './View/resultCityView.mjs';
 import resultDaysView from './View/ResultDaysView.mjs';
 import searchView from './View/searchView.mjs';
@@ -17,10 +18,12 @@ async function loadBigCity() {
 async function loadSearchPanel() {
   searchView.spinner();
   //If LS is empty we'll load thesee cities
-  await data.loadSearch(data.API_URL, data.state.defaultCities);
+  console.log(data.state.search);
+  if (Object.keys(data.state.search).length === 0)
+    await data.loadSearch(data.API_URL, data.state.defaultCities);
   // if LS aint empty or we'll show the last one search
-  //! fix (update area as its elements loads)
   searchView.render(data.state.search);
+  searchView.updateStatus(data.bookmarks, loadBookmarks);
 }
 async function loadSearchQuery() {
   const input = document.querySelector('.input_search');
@@ -36,17 +39,28 @@ async function loadSearchQuery() {
         //2)load weather info
         await data.loadSearch(data.API_URL, data.state.query);
         //render it
-        console.log(data.state.search);
         searchView.render(data.state.search);
+        searchView.updateStatus(data.bookmarks, loadBookmarks);
       }
     });
   });
 }
+async function loadBookmarks() {
+  const bookMarksCont = document.querySelector('.BM_Items');
+  if (data.bookmarks.length === 0) {
+    bookMarksCont.innerHTML =
+      '<p class="BM_msg">Sorry, there is no any bookmarks here. Click on any city to safe it here</p>';
+    return;
+  }
+  bookmarksView.render(data.bookmarks);
+}
+
 function innit() {
   themeSwitch();
   loadBigCity();
   loadSearchPanel();
   loadSearchQuery();
+  loadBookmarks();
 }
 
 innit();

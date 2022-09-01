@@ -1,5 +1,6 @@
 export const API_URL = `https://goweather.herokuapp.com/weather/`;
 export const API_CITIES = `http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=10&offset=0&namePrefix=`;
+export const bookmarks = [];
 export const state = {
   bookmarks: {},
   weather: {},
@@ -37,6 +38,7 @@ export async function loadCitiesQuery(api, city) {
     };
   }
 }
+
 export async function loadSearch(api, cities) {
   state.search = {};
   for (const key in cities) {
@@ -45,13 +47,18 @@ export async function loadSearch(api, cities) {
     const data = await res.json();
     if (data.temperature === '') continue;
     state.search[`${key}`] = {
-      city: key.slice(0, 10),
+      city: key,
       temp: res.ok ? data.temperature.slice(0, -2) : 'ND',
       desc: data.description,
       wind: data.wind,
+      days: data.forecast,
+      date: new Date(),
     };
   }
-  return state.search;
+  cities = {};
+  Object.assign(cities, state.search);
+  console.log(cities);
+  return cities;
 }
 export async function loadWeather(api, city) {
   const res = await getJSON(api, city);

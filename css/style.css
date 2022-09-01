@@ -629,6 +629,15 @@ body {
   background-color: #eef0f4;
 }
 
+.card-hide {
+  opacity: 0.5;
+}
+
+.BM_msg {
+  background-color: #fff;
+  padding: 20px;
+}
+
 .spinner {
   text-align: center;
 }
