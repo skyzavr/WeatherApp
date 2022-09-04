@@ -18,4 +18,10 @@ export default class View {
     </div>`;
     this._parentEl.insertAdjacentHTML('afterbegin', markup);
   }
+  renderError(message = this._message) {
+    const markup = `<div class="spinner">
+    <div>${message} </div>
+    </div>`;
+    this._parentEl.insertAdjacentHTML('afterbegin', markup);
+  }
 }

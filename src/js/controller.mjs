@@ -8,23 +8,40 @@ function themeSwitch() {
   const btn = document.querySelector('.themeSwitchA');
   btn.addEventListener('click', () => el.classList.toggle('dark'));
 }
-async function loadBigCity() {
+async function Search_Bookmarks() {
+  searchView.render(data.state.search);
+  searchView.updateStatus(data.bookmarks, loadBookmarks);
+  const showBtns = document.querySelectorAll('.showCityBtn');
+  showBtns.forEach((el) => {
+    el.addEventListener('click', (e) => {
+      if (!el || !e.target.classList.value.includes('showBtn')) return;
+      const city = e.target.closest('.searchResult__item').dataset.city;
+      loadBigCity(city);
+    });
+  });
+  bookmarksView.updateBM(data.bookmarks);
+}
+async function loadBigCity(city) {
+  //we we'll show big city and small city cards
+  const bigCItyCard = document.querySelector('.bigCityBlock');
   resultView.spinner();
-  await data.loadWeather(data.API_URL, 'London Borough of Barnet');
+  if (!city) {
+    return (bigCItyCard.innerHTML =
+      'Sorry, there is no any city yet. Please, click on any city from your bookmark or use search area for this :)');
+  }
+  await data.loadWeather(data.API_URL, city);
   resultView.render(data.state.weather);
   resultDaysView.render(data.state.weather);
-  // console.log(data.state.defaultCities.London);
 }
 async function loadSearchPanel() {
   searchView.spinner();
-  //If LS is empty we'll load thesee cities
+  //TODO If LS is empty we'll load thesee cities
   console.log(data.state.search);
-  if (Object.keys(data.state.search).length === 0)
+  if (Object.keys(data.state.search).length === 0) {
     await data.loadSearch(data.API_URL, data.state.defaultCities);
-  // if LS aint empty or we'll show the last one search
-  searchView.render(data.state.search);
-  searchView.updateStatus(data.bookmarks, loadBookmarks);
-  bookmarksView.updateBM(data.bookmarks);
+  }
+  //TODO if LS aint empty or we'll show the last one search
+  Search_Bookmarks();
 }
 async function loadSearchQuery() {
   const input = document.querySelector('.input_search');
@@ -40,9 +57,7 @@ async function loadSearchQuery() {
         //2)load weather info
         await data.loadSearch(data.API_URL, data.state.query);
         //render it
-        searchView.render(data.state.search);
-        searchView.updateStatus(data.bookmarks, loadBookmarks);
-        bookmarksView.updateBM(data.bookmarks);
+        Search_Bookmarks();
       }
     });
   });
@@ -50,12 +65,23 @@ async function loadSearchQuery() {
 async function loadBookmarks() {
   const bookMarksCont = document.querySelector('.BM_Items');
   if (data.bookmarks.length === 0) {
-    bookMarksCont.innerHTML =
-      '<p class="BM_msg">Sorry, there is no any bookmarks here. Click on any city to safe it here</p>';
-    return;
+    return (bookMarksCont.innerHTML =
+      '<p class="BM_msg">Sorry, there is no any bookmarks here. Click on any city to safe it here</p>');
   }
+
   bookmarksView.render(data.bookmarks);
   bookmarksView.updateBM(data.bookmarks);
+  const bmList = document.querySelectorAll('.bookmarksItem');
+  //if we click on bookmarks
+  console.log(bmList);
+  bmList.forEach((el, ind) =>
+    el.addEventListener('click', (e) => {
+      if (!e.target.classList.value.includes('delete_BM')) {
+        const city = e.target.closest('.BM_Items').children[ind].dataset.city;
+        loadBigCity(city);
+      }
+    })
+  );
 }
 
 function innit() {
@@ -67,3 +93,10 @@ function innit() {
 }
 
 innit();
+//TODO
+//filter
+//sort
+//error handler
+//local storage
+//refactor data.mjs
+//fix problem with search and bookmarks

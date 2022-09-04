@@ -1,5 +1,4 @@
 import View from './view.mjs';
-
 class resultCityView extends View {
   _parentEl = document.querySelector('.bigCityBlock');
   _generateMarkup() {

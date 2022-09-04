@@ -126,7 +126,9 @@
 }
 
 .leftBar .resultPanel .leftSideResult .searchResult__item .citiItem_block .Item__temp {
-  margin-right: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   font-size: 20px;
 }
 
@@ -347,6 +349,8 @@
 }
 
 .rightBar .bigCityBlock {
+  min-width: 500px;
+  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -392,6 +396,7 @@
 }
 
 .rightBar .bigCityBlock .block_day {
+  text-align: left;
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 40px;
@@ -407,6 +412,7 @@
 }
 
 .rightBar .bigCityBlock .block_weath {
+  text-align: left;
   color: #4b4b4b;
   font-weight: 500;
   font-size: 26px;
@@ -524,6 +530,11 @@ body.dark {
   background-color: #252e48;
 }
 
+body.dark .showBtn {
+  -webkit-filter: brightness(10);
+          filter: brightness(10);
+}
+
 body.dark .leftBar {
   background-color: #131826;
 }
@@ -597,6 +608,7 @@ body.dark .rightBar .themeSwitch a img {
 }
 
 body.dark .rightBar .bigCityBlock {
+  color: white;
   background-color: #131826;
 }
 
@@ -652,6 +664,27 @@ body {
   font-family: 'Inter', sans-serif;
   margin: 0;
   background-color: #eef0f4;
+}
+
+.delete_BM:visited {
+  color: #fff;
+}
+
+.delete_BM:hover {
+  color: #0056ff;
+}
+
+.showBtn {
+  height: 16px;
+  padding: 0 10px;
+}
+
+.showCityBtn {
+  opacity: 0.5;
+}
+
+.showCityBtn:hover {
+  opacity: 1;
 }
 
 .card-hide {

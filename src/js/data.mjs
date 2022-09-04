@@ -48,7 +48,7 @@ export async function loadCitiesQuery(api, city) {
     };
   }
 }
-
+//TODO: need to refactor this
 export async function loadSearch(api, cities) {
   const path = 'src/img/weather_icon';
   state.search = {};
@@ -90,27 +90,23 @@ export async function loadWeather(api, city) {
   };
 }
 function icon_gen(str) {
-  //weather_cond -arr of weather condition
   let compVal = str.toLowerCase();
   let icon = '';
   if (str.includes(' ')) {
     const weathDesc = compVal.split(' ');
     for (let i = 0; i < weathDesc.length; i++) {
-      for (let j = 0; j < weather_cond.length; j++) {
-        if (weather_cond[j].includes(weathDesc[i])) {
-          icon = weather_cond[j];
-          console.log(icon);
-          break;
-        }
-      }
+      icon = searchIcon(weathDesc[i], weather_cond);
+      if (icon) break;
     }
   } else {
-    for (let j = 0; j < weather_cond.length; j++) {
-      if (weather_cond[j].includes(compVal)) {
-        icon = weather_cond[j];
-        break;
-      }
+    icon = searchIcon(compVal, weather_cond);
+  }
+  return !icon ? 'undef' : icon;
+}
+function searchIcon(value, valList) {
+  for (let j = 0; j < valList.length; j++) {
+    if (valList[j].includes(value)) {
+      return valList[j];
     }
   }
-  return (icon = '' ? 'undef' : icon);
 }

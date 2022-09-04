@@ -14,6 +14,7 @@ class SearchView extends View {
         <div class="Item__temp">
           <span class="degree">${cities[key].temp}</span>
           <sup class="degreeSing">&#176;</sup>
+          <a href="#" class="showCityBtn"><img class="showBtn" src="src/img/show.svg" title="click to see the city weather forecost" alt="show buttom"></a>
         </div>
       </div>
     </div>
@@ -29,7 +30,9 @@ class SearchView extends View {
         if (
           !e.target
             .closest('.searchResult__item')
-            .classList.value.includes('selected')
+            .classList.value.includes('selected') &&
+          !e.target.classList.value.includes('showCityBtn') &&
+          !e.target.classList.value.includes('showBtn')
         ) {
           const value = e.target.closest('.searchResult__item').children[0]
             .title;
@@ -44,5 +47,8 @@ class SearchView extends View {
       });
     });
   }
+
+  //method:check if city is already in bookmarks and always mark it's class as selected card-hide
+  //data structure: query and bookmarks
 }
 export default new SearchView();

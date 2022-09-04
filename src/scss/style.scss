@@ -6,6 +6,24 @@ body {
   margin: 0;
   background-color: $LightBGPrimeGray;
 }
+///
+.delete_BM:visited {
+  color: $LightBGPrime;
+}
+.delete_BM:hover {
+  color: $blueCOl;
+}
+.showBtn {
+  height: 16px;
+  // filter: brightness(0);
+  padding: 0 10px;
+}
+.showCityBtn {
+  opacity: 0.5;
+}
+.showCityBtn:hover {
+  opacity: 1;
+}
 ////
 .card-hide {
   opacity: 0.5;

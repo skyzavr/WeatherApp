@@ -1,7 +1,9 @@
 //dark theme
 body.dark {
   background-color: $darkBG;
-
+  .showBtn {
+    filter: brightness(10);
+  }
   .leftBar {
     //   width: 45%;
     background-color: $darkBGPrimary;
@@ -93,6 +95,7 @@ body.dark {
     }
     // block of city - big one
     .bigCityBlock {
+      color: white;
       background-color: $darkBGPrimary;
       .block_city {
         .block_city_city,

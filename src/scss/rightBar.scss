@@ -20,11 +20,15 @@
   // block of city - big one
   .bigCityBlock {
     // width: 800px;
+    min-width: 500px;
+    text-align: center;
+
     display: flex;
     background-color: $LightBGSec;
     flex-direction: column;
     padding: 50px 40px;
     border-radius: 15px;
+
     .block_city {
       display: flex;
       flex-direction: row;
@@ -43,6 +47,7 @@
       }
     }
     .block_day {
+      text-align: left;
       font-size: 20px;
       font-weight: 500;
       margin-bottom: 40px;
@@ -55,6 +60,7 @@
       }
     }
     .block_weath {
+      text-align: left;
       color: $lightGrayColour;
       font-weight: 500;
       font-size: 26px;

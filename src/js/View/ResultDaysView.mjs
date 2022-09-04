@@ -16,12 +16,16 @@ class ResultDaysView extends View {
         <div class="item_Weekday ${ind === 0 ? 'tomorrow' : ''} ">Tomorrow</div>
         <div class="item_day">
           <div class="day">${newDate.toDateString().slice(0, -5)}</div>
-          <div class="temp">${temp === ' ' ? 'ND' : temp + `<sup>&#176;</sup>`} 
+          <div class="temp" title="${
+            temp === ' ' ? 'ND means No Data about it' : 'temp'
+          }">${temp === ' ' ? 'ND' : temp + `<sup>&#176;</sup>`} 
          </div>
         </div>
         <div class="item_wind">
           <div class="wind">Wind</div>
-          <div class="windVal">${wind === ' ' ? 'ND' : wind + 'km/h'}</div>
+          <div class="windVal" title="${
+            wind === ' ' ? 'ND means No Data about it' : 'wind'
+          }">${wind === ' ' ? 'ND' : wind + 'km/h'}</div>
         </div>
       </div>`;
     });
