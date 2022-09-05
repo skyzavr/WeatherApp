@@ -68,12 +68,10 @@ async function loadBookmarks() {
     return (bookMarksCont.innerHTML =
       '<p class="BM_msg">Sorry, there is no any bookmarks here. Click on any city to safe it here</p>');
   }
-
   bookmarksView.render(data.bookmarks);
   bookmarksView.updateBM(data.bookmarks);
   const bmList = document.querySelectorAll('.bookmarksItem');
   //if we click on bookmarks
-  console.log(bmList);
   bmList.forEach((el, ind) =>
     el.addEventListener('click', (e) => {
       if (!e.target.classList.value.includes('delete_BM')) {
@@ -82,6 +80,8 @@ async function loadBookmarks() {
       }
     })
   );
+  //filtring
+  bookmarksView.filter();
 }
 
 function innit() {

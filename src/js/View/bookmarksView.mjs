@@ -1,4 +1,3 @@
-import searchView from './searchView.mjs';
 import View from './view.mjs';
 class BookmarksView extends View {
   _parentEl = document.querySelector('.BM_Items');
@@ -7,7 +6,9 @@ class BookmarksView extends View {
     const cities = this._data;
     for (const key in cities) {
       res += `
-      <div class="bookmarksItem" data-city="${cities[key].city}">
+      <div class="bookmarksItem" data-city="${
+        cities[key].city
+      }" data-weather="${cities[key].dataWeath}">
         <!-- top side of city card -->
         <div class="BMItem__city">
           <div class="BM_city" title="${cities[key].city}">${cities[
@@ -64,6 +65,41 @@ class BookmarksView extends View {
         BMList.splice(ind, 1);
       })
     );
+  }
+
+  filter() {
+    const FilterBtns = document.querySelectorAll('.filter__item');
+    const weatherBM = document.querySelectorAll('.bookmarksItem');
+    let prevBtn = '';
+    FilterBtns.forEach((el) =>
+      el.addEventListener('click', (e) => {
+        const weatherBtn = e.target.closest('.filter__item');
+        const weatherBtnData = weatherBtn.dataset.weather;
+        weatherBM.forEach((el) => {
+          this.containsWeather(weatherBM, weatherBtnData)
+            ? this.renderFilterCards(el, weatherBtnData)
+            : el.classList.remove('hideBM');
+        });
+        //mark filter btn as active
+        if (!prevBtn) weatherBtn.children[0].classList.add('current');
+        if (prevBtn && prevBtn !== weatherBtn) {
+          prevBtn.children[0].classList.remove('current');
+          weatherBtn.children[0].classList.add('current');
+        }
+        prevBtn = weatherBtn;
+      })
+    );
+  }
+  containsWeather(listOfBM, weather) {
+    const weatherData = [];
+    listOfBM.forEach((el) => weatherData.push(el.dataset.weather));
+    const contaits = weatherData.includes(weather);
+    return contaits;
+  }
+  renderFilterCards(el, data) {
+    el.dataset.weather !== data
+      ? el.classList.add('hideBM')
+      : el.classList.remove('hideBM');
   }
 }
 export default new BookmarksView();

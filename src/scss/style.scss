@@ -6,6 +6,9 @@ body {
   margin: 0;
   background-color: $LightBGPrimeGray;
 }
+.hideBM {
+  display: none;
+}
 ///
 .delete_BM:visited {
   color: $LightBGPrime;
