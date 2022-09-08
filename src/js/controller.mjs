@@ -11,6 +11,7 @@ function themeSwitch() {
 async function Search_Bookmarks() {
   searchView.render(data.state.search);
   searchView.updateStatus(data.bookmarks, loadBookmarks);
+  searchView.sortingSearchArea();
   const showBtns = document.querySelectorAll('.showCityBtn');
   showBtns.forEach((el) => {
     el.addEventListener('click', (e) => {
@@ -94,8 +95,6 @@ function innit() {
 
 innit();
 //TODO
-//filter
-//sort
 //error handler
 //local storage
 //refactor data.mjs

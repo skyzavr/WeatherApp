@@ -24,7 +24,6 @@ class SearchView extends View {
   }
   updateStatus(BMList, BM) {
     const searchItems = document.querySelectorAll('.searchResult__item');
-
     searchItems.forEach((el) => {
       el.addEventListener('click', (e) => {
         if (
@@ -37,17 +36,40 @@ class SearchView extends View {
           const value = e.target.closest('.searchResult__item').children[0]
             .title;
           BMList.push(this._data[`${value}`]);
-          console.log(BMList);
           //!FIX: If I'll search this city again its city won't be selected in search area
           e.target.closest('.searchResult__item').classList.add('selected');
           e.target.closest('.searchResult__item').classList.add('card-hide');
-
           setTimeout(() => BM(), 300);
         }
       });
     });
   }
 
+  sortingSearchArea() {
+    const btns = document.querySelectorAll('.sort_btn');
+    btns.forEach((el) => {
+      el.addEventListener('click', (e) => {
+        const parentEl = document.querySelector('.leftSideResult');
+        const sortBtn = e.target.closest('.sort_btn');
+        const type = sortBtn.dataset.sort;
+        const searchElements = [
+          ...document.querySelectorAll('.searchResult__item'),
+        ];
+        type === 'to'
+          ? searchElements.sort(this.sortingAZ)
+          : searchElements.sort(this.sortingZA);
+        for (let i = 0; i < searchElements.length; ++i) {
+          parentEl.appendChild(searchElements[i]);
+        }
+      });
+    });
+  }
+  sortingAZ(a, b) {
+    return a.innerHTML == b.innerHTML ? 0 : a.innerHTML > b.innerHTML ? 1 : -1;
+  }
+  sortingZA(b, a) {
+    return a.innerHTML == b.innerHTML ? 0 : a.innerHTML > b.innerHTML ? 1 : -1;
+  }
   //method:check if city is already in bookmarks and always mark it's class as selected card-hide
   //data structure: query and bookmarks
 }

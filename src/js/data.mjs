@@ -54,7 +54,7 @@ export async function loadSearch(api, cities) {
   state.search = {};
   for (const key in cities) {
     const res = await getJSON(api, key);
-    if (!res.ok) return;
+    if (!res.ok) continue;
     const data = await res.json();
     if (data.temperature === '') continue;
     state.search[`${key}`] = {
