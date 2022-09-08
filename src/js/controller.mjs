@@ -54,7 +54,7 @@ async function loadSearchQuery() {
         //1)get a string from the input field
         const query = e.target.value;
         //2) get all cities that similar to this cities
-        await data.loadCitiesQuery(data.API_CITIES, query || 'Lima');
+        await data.loadCitiesQuery(data.API_CITIES, query);
         //2)load weather info
         await data.loadSearch(data.API_URL, data.state.query);
         //render it

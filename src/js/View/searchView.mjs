@@ -2,6 +2,8 @@ import View from './view.mjs';
 
 class SearchView extends View {
   _parentEl = document.querySelector('.leftSideResult');
+  //array of cities that we have in BM list
+  _currentBMList = [];
   _generateMarkup() {
     let res = ``;
     const cities = this._data;
@@ -25,7 +27,13 @@ class SearchView extends View {
   updateStatus(BMList, BM) {
     const searchItems = document.querySelectorAll('.searchResult__item');
     searchItems.forEach((el) => {
+      if (this._currentBMList.includes(el.dataset.city)) {
+        el.classList.add('selected');
+        el.classList.add('card-hide');
+      }
       el.addEventListener('click', (e) => {
+        if (!this._currentBMList.includes(el.dataset.city))
+          this._currentBMList.push(el.dataset.city);
         if (
           !e.target
             .closest('.searchResult__item')
@@ -36,7 +44,6 @@ class SearchView extends View {
           const value = e.target.closest('.searchResult__item').children[0]
             .title;
           BMList.push(this._data[`${value}`]);
-          //!FIX: If I'll search this city again its city won't be selected in search area
           e.target.closest('.searchResult__item').classList.add('selected');
           e.target.closest('.searchResult__item').classList.add('card-hide');
           setTimeout(() => BM(), 300);
