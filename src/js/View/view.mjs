@@ -1,5 +1,6 @@
 export default class View {
   _data;
+  _message;
   render(data) {
     if (!data) return 'error'; //must return some kinf of func
     this._data = data;
@@ -18,10 +19,12 @@ export default class View {
     </div>`;
     this._parentEl.insertAdjacentHTML('afterbegin', markup);
   }
-  renderError(message = this._message) {
-    const markup = `<div class="spinner">
-    <div>${message} </div>
-    </div>`;
+  renderError(
+    message = this._message ||
+      `There was some mistake, I don't know what yet, but it will be fixed by asap`
+  ) {
+    this.clear();
+    const markup = `<div class="searchResult__item">${message} </div>`;
     this._parentEl.insertAdjacentHTML('afterbegin', markup);
   }
 }

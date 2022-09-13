@@ -1,6 +1,6 @@
 import View from './view.mjs';
-
 class SearchView extends View {
+  _message = `There is no such cities (at least we haven't). Sorry, try something else`;
   _parentEl = document.querySelector('.leftSideResult');
   //array of cities that we have in BM list
   _currentBMList = [];

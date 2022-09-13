@@ -28,12 +28,16 @@ export const state = {
   query: {},
 };
 async function getJSON(api, city) {
-  const resp = await fetch(`${api}${city}`);
-  const res = await Promise.race([
-    resp,
-    new Promise(() => setTimeout(() => {}, 3000)),
-  ]);
-  return res;
+  try {
+    const resp = await fetch(`${api}${city}`);
+    const res = await Promise.race([
+      resp,
+      new Promise(() => setTimeout(() => {}, 3000)),
+    ]);
+    return res;
+  } catch {
+    if (!resp?.ok) return;
+  }
 }
 export async function loadCitiesQuery(api, city) {
   const result = await getJSON(api, city);
@@ -54,7 +58,7 @@ export async function loadSearch(api, cities) {
   state.search = {};
   for (const key in cities) {
     const res = await getJSON(api, key);
-    if (!res.ok) continue;
+    if (!res?.ok) continue;
     const data = await res.json();
     if (data.temperature === '') continue;
     state.search[`${key}`] = {
@@ -70,7 +74,7 @@ export async function loadSearch(api, cities) {
   }
   cities = {};
   Object.assign(cities, state.search);
-  console.log(cities);
+  // console.log(cities);
   return cities;
 }
 export async function loadWeather(api, city) {

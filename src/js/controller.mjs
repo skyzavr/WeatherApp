@@ -35,17 +35,19 @@ async function loadBigCity(city) {
   resultDaysView.render(data.state.weather);
 }
 async function loadSearchPanel() {
-  searchView.spinner();
-  //TODO If LS is empty we'll load thesee cities
-  console.log(data.state.search);
-  if (Object.keys(data.state.search).length === 0) {
-    await data.loadSearch(data.API_URL, data.state.defaultCities);
+  try {
+    searchView.spinner();
+    if (Object.keys(data.state.search).length === 0) {
+      await data.loadSearch(data.API_URL, data.state.defaultCities);
+    }
+    Search_Bookmarks();
+  } catch (err) {
+    searchView.renderError();
   }
-  //TODO if LS aint empty or we'll show the last one search
-  Search_Bookmarks();
 }
 async function loadSearchQuery() {
   const input = document.querySelector('.input_search');
+
   input.addEventListener('click', () => {
     input.value = '';
     window.addEventListener('keydown', async function (e) {
@@ -53,12 +55,17 @@ async function loadSearchQuery() {
         searchView.spinner();
         //1)get a string from the input field
         const query = e.target.value;
-        //2) get all cities that similar to this cities
-        await data.loadCitiesQuery(data.API_CITIES, query);
-        //2)load weather info
-        await data.loadSearch(data.API_URL, data.state.query);
-        //render it
-        Search_Bookmarks();
+        try {
+          //2) get all cities that similar to this cities
+          await data.loadCitiesQuery(data.API_CITIES, query);
+          //2)load weather info
+          const obj = await data.loadSearch(data.API_URL, data.state.query);
+          if (Object.keys(obj).length === 0) throw new Error('error');
+          //render it
+          Search_Bookmarks();
+        } catch {
+          searchView.renderError();
+        }
       }
     });
   });
@@ -72,7 +79,7 @@ async function loadBookmarks() {
   bookmarksView.render(data.bookmarks);
   bookmarksView.updateBM(data.bookmarks);
   const bmList = document.querySelectorAll('.bookmarksItem');
-  //if we click on bookmarks
+  //if we click on bookmark
   bmList.forEach((el, ind) =>
     el.addEventListener('click', (e) => {
       if (!e.target.classList.value.includes('delete_BM')) {
@@ -94,8 +101,3 @@ function innit() {
 }
 
 innit();
-//TODO
-//error handler
-//local storage
-//refactor data.mjs
-//fix problem with search and bookmarks
