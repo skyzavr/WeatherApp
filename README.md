@@ -10,6 +10,5 @@ So you can:
 <li>filtering a city in bookmarks by its weather;</li>
 <li>sorting cities in the search area;</li>
 </ul>
-<video>
- <source src="vid.mp4">
-</video>
+<h3><a href="https://weather-app-deploy-umber.vercel.app">Try it</a></h3>
+<h3>recommended width screen width 1100 and above</h3>
