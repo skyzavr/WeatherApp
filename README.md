@@ -10,3 +10,6 @@ So you can:
 <li>filtering a city in bookmarks by its weather;</li>
 <li>sorting cities in the search area;</li>
 </ul>
+<video>
+ <source src="vid.mp4">
+</video>
